@@ -1,18 +1,24 @@
-const addressesToUpsert = new Map()
+const addressesToUpsert = new Map();
 const email = {
-    from: { address: 'elliott@useincubate.com', name: 'Elliott Chong' },
-    to: [{ address: 'gmansoor@technologyrivers.com', name: 'Ghazenfer Mansoor' }],
-    cc: [],
-    bcc: [],
-    replyTo: [],
-}
-const all = [email.from, ...email.to, ...email.cc, ...email.bcc, ...email.replyTo]
+  from: { address: "calvin.magezi@mts-africa.tech", name: "Calvin Magezi" },
+  to: [{ address: "george.kyalo@mts-africa.tech", name: "George Kyalo" }],
+  cc: [],
+  bcc: [],
+  replyTo: [],
+};
+const all = [
+  email.from,
+  ...email.to,
+  ...email.cc,
+  ...email.bcc,
+  ...email.replyTo,
+];
 // console.log('all', JSON.stringify(all, null, 2))
 for (const address of all) {
-    addressesToUpsert.set(address.address, address);
+  addressesToUpsert.set(address.address, address);
 }
 for (const address of addressesToUpsert.values()) {
-    console.log('address', address)
+  console.log("address", address);
 }
 
 // console.log('addressesToUpsert', JSON.stringify(addressesToUpsert.entries(), null, 2))

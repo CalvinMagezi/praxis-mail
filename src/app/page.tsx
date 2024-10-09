@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/theme-toggle";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Image from "next/image";
@@ -13,8 +12,34 @@ const LandingPage = async () => {
   }
   return (
     <>
+      <nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between bg-[#131619] p-4">
+        <Link href="/" className="text-2xl font-bold text-[#1DE52F]">
+          Praxis Mail
+        </Link>
+        <div className="space-x-4">
+          <Link
+            href="/sign-in"
+            className="text-sm text-[#00C6FA] hover:underline"
+          >
+            Sign In
+          </Link>
+          <Link
+            href="/sign-up"
+            className="text-sm text-[#00C6FA] hover:underline"
+          >
+            Sign Up
+          </Link>
+        </div>
+      </nav>
       <div className="absolute bottom-0 left-0 right-0 top-0 z-[-1] bg-[linear-gradient(to_right,#828282_1px,transparent_1px),linear-gradient(to_bottom,#828282_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_80%)]"></div>
       <div className="relative z-[10] flex min-h-screen flex-col items-center bg-[#131619] pt-56 text-[#dfdfdf]">
+        <Image
+          src="/logo.svg"
+          alt="Praxis Mail Logo"
+          width={200}
+          height={200}
+          className="mb-4"
+        />
         <h1 className="inline-block bg-gradient-to-r from-[#00C6FA] to-[#1DE52F] bg-clip-text text-center text-6xl font-bold text-transparent">
           Praxis Mail: <br />
           The AI-powered email client.
@@ -71,13 +96,13 @@ const LandingPage = async () => {
           </div>
         </div>
         <Image
-          src="/demo.png"
+          src="/example.png"
           alt="demo"
           width={1000}
           height={1000}
           className="my-12 h-auto w-[70vw] rounded-md border shadow-xl transition-all hover:scale-[102%] hover:shadow-2xl"
         />
-        <div className="mb-10 flex items-center space-x-4">
+        {/* <div className="mb-10 flex items-center space-x-4">
           <Link
             href="/sign-in"
             className="text-sm text-[#00C6FA] hover:underline"
@@ -90,8 +115,7 @@ const LandingPage = async () => {
           >
             Sign Up
           </Link>
-          <ModeToggle />
-        </div>
+        </div> */}
       </div>
     </>
   );
